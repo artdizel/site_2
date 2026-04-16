@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подкатегории</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    /* Специальные стили для страницы подкатегорий — 2 карточки на всю ширину */
+    .subcategories-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .subcategories-grid .image-item {
+        flex: 1 1 300px;
+        max-width: 400px;
+        min-width: 250px;
+        position: relative;
+    }
+    
+    .subcategories-grid .image-item a {
+        position: relative;
+        display: block;
+        text-decoration: none;
+    }
+    
+    .subcategories-grid .image-item img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        border-radius: 8px;
+        pointer-events: none;
+        display: block;
+    }
+    
+    .subcategories-grid .item-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
+        color: white;
+        padding: 50px 10px 15px 10px;  /* Увеличил верхний отступ, чтобы текст поднялся */
+        text-align: center;
+        pointer-events: none;
+        border-radius: 0 0 8px 8px;
+    }
+    
+    .subcategories-grid .item-overlay h3 {
+        font-size: 24px;
+        margin: 0 0 20px 0;
+        font-weight: bold;
+    }
+    
+    .subcategories-grid .item-overlay p {
+        font-size: 14px;
+        margin: 0;
+        opacity: 0.9;
+        line-height: 1.3;
+    }
+    
+    /* Адаптив для мобильных */
+    @media screen and (max-width: 768px) {
+        .subcategories-grid {
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .subcategories-grid .image-item {
+            max-width: 100%;
+            width: 100%;
+        }
+        .subcategories-grid .item-overlay {
+            padding: 40px 10px 12px 10px;
+        }
+        .subcategories-grid .item-overlay h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-container">
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="Логотип"></a>
+        </div>
+        <div class="social-links">
+            <a href="#" target="_blank">ВК</a>
+            <a href="#" target="_blank">MAX</a>
+            <a href="#" target="_blank">ТГ</a>
+        </div>
+        <div class="contact-info">
+            <span>📞 +7 (123) 456-78-90</span>
+            <span>✉️ info@company.ru</span>
+        </div>
+    </div>
+</header>
+
+<nav class="nav-menu">
+    <ul class="menu-list">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="#">О нас</a></li>
+        <li><a href="#">Услуги</a></li>
+        <li><a href="#">Портфолио</a></li>
+        <li><a href="#">Контакты</a></li>
+    </ul>
+</nav>
+
+<main class="main-content">
+    <section class="content">
+        <h1 class="page-title" id="category-title">Загрузка...</h1>
+        <div class="subcategories-grid" id="subcategories-container">
+            <!-- Подкатегории (Худи / Футболки) будут загружены сюда -->
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <a href="index.html"><img src="images/logo.png" alt="Логотип"></a>
+        </div>
+        <div class="footer-copyright">
+            &copy; 2026 Все права защищены
+        </div>
+        <div class="footer-contact">
+            <span>📞 +7 (123) 456-78-90</span>
+            <span>✉️ info@company.ru</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryId = parseInt(urlParams.get('id'));
+        
+        if (!categoryId) {
+            window.location.href = 'index.html';
+            return;
+        }
+        
+        fetch('products.json')
+            .then(response => response.json())
+            .then(data => {
+                const category = data.categories.find(c => c.id === categoryId);
+                if (!category) {
+                    window.location.href = 'index.html';
+                    return;
+                }
+                
+                document.getElementById('category-title').textContent = category.name;
+                
+                const subcategories = category.subcategories || [];
+                const container = document.getElementById('subcategories-container');
+                container.innerHTML = '';
+                
+                if (subcategories.length === 0) {
+                    container.innerHTML = '<p class="no-products">В этой категории пока нет подкатегорий</p>';
+                    return;
+                }
+                
+                subcategories.forEach(subcat => {
+                    const subcatItem = document.createElement('div');
+                    subcatItem.className = 'image-item';
+                    subcatItem.innerHTML = `
+                        <a href="subcategory.html?categoryId=${categoryId}&subcategoryId=${subcat.id}">
+                            <img src="${subcat.image}" alt="${subcat.name}">
+                            <div class="item-overlay">
+                                <h3>${subcat.name}</h3>
+                                <p>${subcat.description || ''}</p>
+                            </div>
+                        </a>
+                    `;
+                    container.appendChild(subcatItem);
+                });
+            })
+            .catch(error => {
+                console.error('Ошибка загрузки:', error);
+                document.getElementById('subcategories-container').innerHTML = 
+                    '<p class="error">Ошибка загрузки данных</p>';
+            });
+    });
+</script>
+
+</body>
+</html>

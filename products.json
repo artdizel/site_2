@@ -1,0 +1,244 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Категория 1",
+      "image": "images/7.png",
+      "description": "Описание категории",
+      "subcategories": [
+        {
+          "id": 101,
+          "name": "Худи",
+          "image": "images/hoodies.jpg",
+          "description": "Уютные худи"
+        },
+        {
+          "id": 102,
+          "name": "Футболки",
+          "image": "images/tshirts.jpg",
+          "description": "Качественные футболки"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Категория 2",
+      "image": "images/4.png",
+      "description": "Описание категории",
+      "subcategories": [
+        {
+          "id": 201,
+          "name": "Худи",
+          "image": "images/hoodies.jpg",
+          "description": "Уютные худи"
+        },
+        {
+          "id": 202,
+          "name": "Футболки",
+          "image": "images/tshirts.jpg",
+          "description": "Качественные футболки"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Категория 3",
+      "image": "images/3.jpg",
+      "description": "Описание категории",
+      "subcategories": [
+        {
+          "id": 301,
+          "name": "Худи",
+          "image": "images/hoodies.jpg",
+          "description": "Уютные худи"
+        },
+        {
+          "id": 302,
+          "name": "Футболки",
+          "image": "images/tshirts.jpg",
+          "description": "Качественные футболки"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Категория 4",
+      "image": "images/1.jpg",
+      "description": "Описание категории",
+      "subcategories": [
+        {
+          "id": 401,
+          "name": "Худи",
+          "image": "images/hoodies.jpg",
+          "description": "Уютные худи"
+        },
+        {
+          "id": 402,
+          "name": "Футболки",
+          "image": "images/tshirts.jpg",
+          "description": "Качественные футболки"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Категория 5",
+      "image": "images/2.jpg",
+      "description": "Описание категории",
+      "subcategories": [
+        {
+          "id": 501,
+          "name": "Худи",
+          "image": "images/hoodies.jpg",
+          "description": "Уютные худи"
+        },
+        {
+          "id": 502,
+          "name": "Футболки",
+          "image": "images/tshirts.jpg",
+          "description": "Качественные футболки"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Категория 6",
+      "image": "images/1.jpg",
+      "description": "Описание категории",
+      "subcategories": [
+        {
+          "id": 601,
+          "name": "Худи",
+          "image": "images/hoodies.jpg",
+          "description": "Уютные худи"
+        },
+        {
+          "id": 602,
+          "name": "Футболки",
+          "image": "images/tshirts.jpg",
+          "description": "Качественные футболки"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Категория 7",
+      "image": "images/1.jpg",
+      "description": "Описание категории",
+      "subcategories": [
+        {
+          "id": 701,
+          "name": "Худи",
+          "image": "images/hoodies.jpg",
+          "description": "Уютные худи"
+        },
+        {
+          "id": 702,
+          "name": "Футболки",
+          "image": "images/tshirts.jpg",
+          "description": "Качественные футболки"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Категория 8",
+      "image": "images/3.jpg",
+      "description": "Описание категории",
+      "subcategories": [
+        {
+          "id": 801,
+          "name": "Худи",
+          "image": "images/hoodies.jpg",
+          "description": "Уютные худи"
+        },
+        {
+          "id": 802,
+          "name": "Футболки",
+          "image": "images/tshirts.jpg",
+          "description": "Качественные футболки"
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": 1001,
+      "categoryId": 1,
+      "subcategoryId": 101,
+      "name": "Худи черное",
+      "price": 2999,
+      "image": "images/3.jpg",
+      "description": "Описание товара",
+      "specs": {
+        "brand": "Бренд",
+        "model": "Модель"
+      }
+    },
+    {
+      "id": 1002,
+      "categoryId": 1,
+      "subcategoryId": 101,
+      "name": "Худи серое",
+      "price": 2999,
+      "image": "images/1.jpg",
+      "description": "Описание товара",
+      "specs": {
+        "brand": "Бренд",
+        "model": "Модель"
+      }
+    },
+    {
+      "id": 1003,
+      "categoryId": 1,
+      "subcategoryId": 102,
+      "name": "Футболка белая",
+      "price": 999,
+      "image": "images/2.jpg",
+      "description": "Описание товара",
+      "specs": {
+        "brand": "Бренд",
+        "model": "Модель"
+      }
+    },
+    {
+      "id": 1004,
+      "categoryId": 1,
+      "subcategoryId": 102,
+      "name": "Футболка черная",
+      "price": 999,
+      "image": "images/3.jpg",
+      "description": "Описание товара",
+      "specs": {
+        "brand": "Бренд",
+        "model": "Модель"
+      }
+    },
+    {
+      "id": 2001,
+      "categoryId": 2,
+      "subcategoryId": 201,
+      "name": "Худи синее",
+      "price": 2999,
+      "image": "images/2.jpg",
+      "description": "Описание товара",
+      "specs": {
+        "brand": "Бренд",
+        "model": "Модель"
+      }
+    },
+    {
+      "id": 2002,
+      "categoryId": 2,
+      "subcategoryId": 202,
+      "name": "Футболка красная",
+      "price": 999,
+      "image": "images/1.jpg",
+      "description": "Описание товара",
+      "specs": {
+        "brand": "Бренд",
+        "model": "Модель"
+      }
+    }
+  ]
+}
