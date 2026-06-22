@@ -102,9 +102,9 @@
     },
     {
       "id": 6,
-      "name": "Категория 6",
+      "name": "Детям",
       "image": "images/1.jpg",
-      "description": "Описание категории",
+      "description": "От мало до велико, Игры Игрушки",
       "subcategories": [
         {
           "id": 601,
