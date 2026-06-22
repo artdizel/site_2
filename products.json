@@ -122,9 +122,9 @@
     },
     {
       "id": 7,
-      "name": "Категория 7",
+      "name": "Умное?",
       "image": "images/1.jpg",
-      "description": "Описание категории",
+      "description": "Цитаты Личности ",
       "subcategories": [
         {
           "id": 701,
