@@ -82,9 +82,9 @@
     },
     {
       "id": 5,
-      "name": "Категория 5",
+      "name": "Природа",
       "image": "images/2.jpg",
-      "description": "Описание категории",
+      "description": "Животные Растения Фауна ",
       "subcategories": [
         {
           "id": 501,
