@@ -62,9 +62,9 @@
     },
     {
       "id": 4,
-      "name": "Категория 4",
+      "name": "Пати",
       "image": "images/1.jpg",
-      "description": "Описание категории",
+      "description": "Бар Туса Праздник Вечеринка",
       "subcategories": [
         {
           "id": 401,
