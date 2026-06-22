@@ -42,9 +42,9 @@
     },
     {
       "id": 3,
-      "name": "Категория 3",
+      "name": "Спорт",
       "image": "images/3.jpg",
-      "description": "Описание категории",
+      "description": "Регби Баскет Теннис",
       "subcategories": [
         {
           "id": 301,
