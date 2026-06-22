@@ -2,9 +2,9 @@
   "categories": [
     {
       "id": 1,
-      "name": "Категория 1",
+      "name": "Транспорт",
       "image": "images/7.png",
-      "description": "Описание категории",
+      "description": "Авто Мото Авиа Метро ЖД",
       "subcategories": [
         {
           "id": 101,
