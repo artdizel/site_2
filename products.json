@@ -44,7 +44,7 @@
       "id": 3,
       "name": "Спорт",
       "image": "images/3.jpg",
-      "description": "Регби Баскет Теннис",
+      "description": "Регби Баскет Теннис Кайт",
       "subcategories": [
         {
           "id": 301,
@@ -104,7 +104,7 @@
       "id": 6,
       "name": "Детям",
       "image": "images/1.jpg",
-      "description": "От мало до велико, Игры Игрушки",
+      "description": "От мало до велика, Игры Игрушки Мультики",
       "subcategories": [
         {
           "id": 601,
@@ -124,7 +124,7 @@
       "id": 7,
       "name": "Умное?",
       "image": "images/1.jpg",
-      "description": "Цитаты Личности ",
+      "description": "Цитаты Личности Философия",
       "subcategories": [
         {
           "id": 701,
@@ -142,9 +142,9 @@
     },
     {
       "id": 8,
-      "name": "Категория 8",
+      "name": "Семейное?",
       "image": "images/3.jpg",
-      "description": "Описание категории",
+      "description": "Мир Земля Дом",
       "subcategories": [
         {
           "id": 801,
