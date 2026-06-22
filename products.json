@@ -192,26 +192,26 @@
       "id": 1003,
       "categoryId": 1,
       "subcategoryId": 102,
-      "name": "Футболка белая",
+      "name": "BMW /// M",
       "price": 999,
-      "image": "images/2.jpg",
-      "description": "Описание товара",
+      "image": "bmwwhite2.jpg", "bmwwhite1.jpg"
+      "description": "Передняя решетка М",
       "specs": {
-        "brand": "Бренд",
-        "model": "Модель"
+        "brand": "BMW-M",
+        "model": "Состав 100%"
       }
     },
     {
       "id": 1004,
       "categoryId": 1,
       "subcategoryId": 102,
-      "name": "Футболка черная",
+      "name": "BMW /// M",
       "price": 999,
-      "image": "images/3.jpg",
-      "description": "Описание товара",
+      "image": "bmwblack1.jpg",
+      "description": "Передняя решетка М",
       "specs": {
-        "brand": "Бренд",
-        "model": "Модель"
+        "brand": "БМВ",
+        "model": "Длина<br> ширина<br> рукав<br>"
       }
     },
     {
