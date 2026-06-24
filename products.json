@@ -249,6 +249,21 @@
       }
     },
     {
+      "id": 1007,
+      "categoryId": 1,
+      "subcategoryId": 102,
+      "name": "MERCEDES C117",
+      "price": 999,
+      "image_front": "images/mbblack1.jpg",
+      "image_back": "images/mbblack2.jpg",
+      "image_side": "images/hdblack2.jpg",
+      "description": "Решетка радиатора Мерседес СLA",
+      "specs": {
+        "TEMA": "MERCEDES CLA 117",
+        "model": "Длина<br> ширина<br> рукав<br>"
+      }
+    },  
+    {
       "id": 2001,
       "categoryId": 2,
       "subcategoryId": 201,
