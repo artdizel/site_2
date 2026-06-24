@@ -20,13 +20,13 @@
             max-width: 500px;
         }
         
-        /* Контейнер для двух изображений */
         .product-images-wrapper {
             position: relative;
             width: 100%;
             aspect-ratio: 1/1;
             overflow: hidden;
             border-radius: 8px;
+            background: #f5f5f5;
         }
         
         .product-images-wrapper img {
@@ -36,46 +36,34 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: opacity 0.6s ease;
+            transition: opacity 0.5s ease;
         }
         
-        /* Переднее изображение видно по умолчанию */
-        .product-image-front {
-            opacity: 1;
-            z-index: 2;
-        }
+        .product-image-front { opacity: 1; z-index: 3; }
+        .product-image-back { opacity: 0; z-index: 2; }
+        .product-image-side { opacity: 0; z-index: 1; }
         
-        /* Заднее изображение скрыто */
-        .product-image-back {
-            opacity: 0;
-            z-index: 1;
-        }
-        
-        /* При наведении на контейнер показываем заднее изображение */
-        .product-images-wrapper:hover .product-image-front {
-            opacity: 0;
-        }
-        
-        .product-images-wrapper:hover .product-image-back {
-            opacity: 1;
-        }
+        /* При наведении — цикл: front → back → side → front */
+        .product-images-wrapper:hover .product-image-front { opacity: 0; }
+        .product-images-wrapper:hover .product-image-back { opacity: 1; }
+        .product-images-wrapper:hover .product-image-side { opacity: 0; }
         
         /* Если только одно изображение — показываем его всегда */
         .product-images-wrapper img:only-child {
             opacity: 1 !important;
         }
         
-        /* Миниатюры для переключения (опционально) */
         .product-thumbnails {
             display: flex;
             gap: 10px;
             margin-top: 15px;
             justify-content: center;
+            flex-wrap: wrap;
         }
         
         .product-thumbnails img {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             object-fit: cover;
             border-radius: 6px;
             cursor: pointer;
@@ -85,6 +73,10 @@
         
         .product-thumbnails img:hover {
             border-color: #007bff;
+        }
+        
+        .product-thumbnails img.active {
+            border-color: #ff6600;
         }
         
         .product-info {
@@ -146,20 +138,29 @@
             color: #ff6600;
         }
         
-        /* Адаптив для мобильных */
         @media screen and (max-width: 768px) {
             .product-detail {
                 flex-direction: column;
             }
-            
             .product-images {
                 max-width: 100%;
             }
-            
             .product-thumbnails img {
                 width: 50px;
                 height: 50px;
             }
+        }
+        
+        .no-image-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background: #e9ecef;
+            color: #6c757d;
+            font-size: 18px;
+            border-radius: 8px;
         }
     </style>
 </head>
@@ -217,7 +218,7 @@
 </footer>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = parseInt(urlParams.get('id'));
     
@@ -237,39 +238,44 @@
                 return;
             }
             
-            // Находим категорию товара для ссылки "назад"
             const category = data.categories.find(c => c.id === product.categoryId);
             
-            // ===== БЕЗОПАСНАЯ РАБОТА С ИЗОБРАЖЕНИЯМИ =====
+            // ===== БЕЗОПАСНАЯ РАБОТА С ИЗОБРАЖЕНИЯМИ (3 штуки) =====
             let imagesHTML = '';
             let thumbnailsHTML = '';
+            let imageKeys = [];
             
-            // Проверяем фронтальное изображение
-            const frontSrc = (product.image_front && product.image_front.trim() !== '') 
-                ? product.image_front 
-                : null;
+            // Проверяем все три изображения
+            const frontSrc = (product.image_front && product.image_front.trim() !== '') ? product.image_front : null;
+            const backSrc = (product.image_back && product.image_back.trim() !== '') ? product.image_back : null;
+            const sideSrc = (product.image_side && product.image_side.trim() !== '') ? product.image_side : null;
             
-            // Проверяем заднее изображение
-            const backSrc = (product.image_back && product.image_back.trim() !== '') 
-                ? product.image_back 
-                : null;
-            
-            // Если есть фронтальное — добавляем его
+            // Добавляем изображения, которые есть
             if (frontSrc) {
-                imagesHTML += `<img src="${frontSrc}" alt="${product.name}" class="product-image-front" id="main-image">`;
-                thumbnailsHTML += `<img src="${frontSrc}" alt="Вид спереди" onclick="switchImage('front')">`;
+                imagesHTML += `<img src="${frontSrc}" alt="${product.name}" class="product-image-front" data-view="front">`;
+                thumbnailsHTML += `<img src="${frontSrc}" alt="Вид спереди" data-view="front" onclick="switchImage('front')">`;
+                imageKeys.push('front');
             }
             
-            // Если есть заднее — добавляем его
             if (backSrc) {
-                imagesHTML += `<img src="${backSrc}" alt="${product.name} (вид сзади)" class="product-image-back" id="back-image">`;
-                thumbnailsHTML += `<img src="${backSrc}" alt="Вид сзади" onclick="switchImage('back')">`;
+                imagesHTML += `<img src="${backSrc}" alt="${product.name} (вид сзади)" class="product-image-back" data-view="back">`;
+                thumbnailsHTML += `<img src="${backSrc}" alt="Вид сзади" data-view="back" onclick="switchImage('back')">`;
+                imageKeys.push('back');
             }
             
-            // Если изображений нет — показываем заглушку
+            if (sideSrc) {
+                imagesHTML += `<img src="${sideSrc}" alt="${product.name} (вид сбоку)" class="product-image-side" data-view="side">`;
+                thumbnailsHTML += `<img src="${sideSrc}" alt="Вид сбоку" data-view="side" onclick="switchImage('side')">`;
+                imageKeys.push('side');
+            }
+            
+            // Если изображений нет — заглушка
             if (!imagesHTML) {
                 imagesHTML = `<div class="no-image-placeholder">Нет изображения</div>`;
             }
+            
+            // Сохраняем порядок изображений для переключения
+            const imageOrder = imageKeys;
             
             // ===== ФОРМИРУЕМ КАРТОЧКУ =====
             let specsHTML = '';
@@ -284,7 +290,7 @@
             const productHTML = `
                 <div class="product-detail">
                     <div class="product-images">
-                        <div class="product-images-wrapper" id="image-wrapper">
+                        <div class="product-images-wrapper" id="image-wrapper" data-order='${JSON.stringify(imageOrder)}'>
                             ${imagesHTML}
                         </div>
                         ${thumbnailsHTML ? `<div class="product-thumbnails">${thumbnailsHTML}</div>` : ''}
@@ -308,20 +314,30 @@
         });
 });
 
-// Функция для переключения изображений по клику на миниатюру
+// Функция переключения изображений по клику на миниатюру
 function switchImage(view) {
-    const frontImg = document.querySelector('.product-image-front');
-    const backImg = document.querySelector('.product-image-back');
+    // Находим все изображения внутри обёртки
+    const wrapper = document.getElementById('image-wrapper');
+    if (!wrapper) return;
     
-    if (!frontImg && !backImg) return;
+    const images = wrapper.querySelectorAll('img');
+    if (images.length === 0) return;
     
-    if (view === 'back' && backImg) {
-        if (frontImg) frontImg.style.opacity = '0';
-        backImg.style.opacity = '1';
-    } else if (frontImg) {
-        frontImg.style.opacity = '1';
-        if (backImg) backImg.style.opacity = '0';
+    // Скрываем все
+    images.forEach(img => {
+        img.style.opacity = '0';
+    });
+    
+    // Показываем выбранное
+    const targetImg = wrapper.querySelector(`img[data-view="${view}"]`);
+    if (targetImg) {
+        targetImg.style.opacity = '1';
     }
+    
+    // Подсвечиваем активную миниатюру
+    document.querySelectorAll('.product-thumbnails img').forEach(thumb => {
+        thumb.classList.toggle('active', thumb.dataset.view === view);
+    });
 }
 </script>
 
