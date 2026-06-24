@@ -194,7 +194,7 @@
       "subcategoryId": 102,
       "name": "BMW /// M",
       "price": 999,
-      "image": ["bmwwhite2.jpg", "bmwwhite1.jpg"],
+      "image": "bmwwhite2.jpg",
       "description": "Передняя решетка М",
       "specs": {
         "brand": "BMW-M",
