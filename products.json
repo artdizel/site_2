@@ -211,7 +211,7 @@
       "price": 999,
       "image_front": "images/bmwblack1.jpg",
       "image_back": "images/bmwblack2.jpg",
-      "image_side": "images/bmwblack_side.jpg",
+      "image_side": "images/bmwblack2.jpg",
       "description": "Передняя решетка М",
       "specs": {
         "brand": "БМВ",
