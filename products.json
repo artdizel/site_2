@@ -294,6 +294,21 @@
       }
     },
     {
+      "id": 1010,
+      "categoryId": 1,
+      "subcategoryId": 102,
+      "name": "Harley-Davidson Las Vegas",
+      "price": 999,
+      "image_front": "images/hdblack1.jpg",
+      "image_back": "images/hdblack2.jpg",
+      "image_side": "images/hdblack3.jpg",
+      "description": "Харлей море пляж на связи",
+      "specs": {
+        "TEMA": "На связи",
+        "model": "Длина<br> ширина<br> рукав<br>"
+      }
+    },
+    {
       "id": 2001,
       "categoryId": 2,
       "subcategoryId": 201,
