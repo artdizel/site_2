@@ -104,13 +104,17 @@
                     return;
                 }
                 
-                // Создаем карточки товаров
+                // Создаем карточки товаров (используем image_front)
                 filteredProducts.forEach(product => {
                     const productItem = document.createElement('div');
                     productItem.className = 'image-item';
+                    
+                    // Используем фронтальное изображение (или fallback на старое поле image)
+                    const imageSrc = product.image_front || product.image;
+                    
                     productItem.innerHTML = `
                         <a href="product.html?id=${product.id}">
-                            <img src="${product.image}" alt="${product.name}">
+                            <img src="${imageSrc}" alt="${product.name}">
                             <div class="item-overlay">
                                 <h3>${product.name}</h3>
                                 <p class="price">${product.price.toLocaleString()} ₽</p>
