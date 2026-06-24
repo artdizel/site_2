@@ -84,7 +84,7 @@
       "id": 5,
       "name": "Природа",
       "image": "images/2.jpg",
-      "description": "Животные Растения Фауна ",
+      "description": "Животные Растения Фауна",
       "subcategories": [
         {
           "id": 501,
@@ -168,7 +168,7 @@
       "subcategoryId": 101,
       "name": "Худи черное",
       "price": 2999,
-      "image": "images/3.jpg",
+      "image_front": "images/3.jpg",
       "description": "Описание товара",
       "specs": {
         "brand": "Бренд",
@@ -181,7 +181,7 @@
       "subcategoryId": 101,
       "name": "Худи серое",
       "price": 2999,
-      "image": "images/1.jpg",
+      "image_front": "images/1.jpg",
       "description": "Описание товара",
       "specs": {
         "brand": "Бренд",
@@ -194,7 +194,8 @@
       "subcategoryId": 102,
       "name": "BMW /// M",
       "price": 999,
-      "image": "images/bmwwhite2.jpg",
+      "image_front": "images/bmwwhite2.jpg",
+      "image_back": "images/bmwwhite1.jpg",
       "description": "Передняя решетка М",
       "specs": {
         "brand": "BMW-M",
@@ -207,7 +208,8 @@
       "subcategoryId": 102,
       "name": "BMW /// M",
       "price": 999,
-      "image": "images/bmwblack1.jpg",
+      "image_front": "images/bmwblack1.jpg",
+      "image_back": "images/bmwblack2.jpg",
       "description": "Передняя решетка М",
       "specs": {
         "brand": "БМВ",
@@ -220,7 +222,7 @@
       "subcategoryId": 201,
       "name": "Худи синее",
       "price": 2999,
-      "image": "images/2.jpg",
+      "image_front": "images/2.jpg",
       "description": "Описание товара",
       "specs": {
         "brand": "Бренд",
@@ -233,7 +235,7 @@
       "subcategoryId": 202,
       "name": "Футболка красная",
       "price": 999,
-      "image": "images/1.jpg",
+      "image_front": "images/1.jpg",
       "description": "Описание товара",
       "specs": {
         "brand": "Бренд",
