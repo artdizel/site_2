@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Транспорт",
       "image": "images/7.png",
-      "description": "Авто Мото Авиа Метро ЖД",
+      "description": "Авто Мото Вело Метро ЖД",
       "subcategories": [
         {
           "id": 101,
