@@ -196,6 +196,7 @@
       "price": 999,
       "image_front": "images/bmwwhite2.jpg",
       "image_back": "images/bmwwhite1.jpg",
+      "image_side": "images/bmwwhite_side.jpg",
       "description": "Передняя решетка М",
       "specs": {
         "brand": "BMW-M",
@@ -210,6 +211,7 @@
       "price": 999,
       "image_front": "images/bmwblack1.jpg",
       "image_back": "images/bmwblack2.jpg",
+      "image_side": "images/bmwblack_side.jpg",
       "description": "Передняя решетка М",
       "specs": {
         "brand": "БМВ",
